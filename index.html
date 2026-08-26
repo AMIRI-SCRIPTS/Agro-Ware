@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGRO · modern start page</title>
+    <!-- Font Awesome (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a; /* deep black base */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            /* subtle grain texture (optional) */
+            background-image: radial-gradient(circle at 20% 30%, rgba(40, 87, 173, 0.03) 0%, transparent 30%);
+        }
+
+        /* main card – modern glassmorphism + sharp edges */
+        .start-page {
+            max-width: 1200px;
+            width: 100%;
+            background: #0d0d0d;
+            border-radius: 2.5rem;
+            padding: 3rem 3.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(40, 87, 173, 0.2);
+            backdrop-filter: blur(2px);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(40, 87, 173, 0.15);
+        }
+
+        /* header with logo + navigation */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-img {
+            height: 54px;
+            width: auto;
+            filter: drop-shadow(0 0 6px rgba(40, 87, 173, 0.4));
+            transition: transform 0.2s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
+
+        .brand-text {
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: #f0f4ff;
+            background: linear-gradient(135deg, #f0f4ff 0%, #a0bceb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #b0c8f0;
+            text-decoration: none;
+            font-weight: 450;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+            transition: color 0.15s, border-bottom 0.15s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.3rem;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            border-bottom-color: #2857ad;
+        }
+
+        .nav-links a i {
+            margin-right: 0.4rem;
+            color: #2857ad;
+        }
+
+        .cta-small {
+            background: #2857ad;
+            color: white !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            border-bottom: none !important;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(40, 87, 173, 0.3);
+        }
+
+        .cta-small:hover {
+            background: #3a6bc4;
+            transform: scale(1.02);
+            border-bottom: none !important;
+        }
+
+        /* hero section */
+        .hero {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .hero-content {
+            flex: 1 1 300px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(40, 87, 173, 0.18);
+            color: #8bb1f0;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(40, 87, 173, 0.25);
+            backdrop-filter: blur(4px);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: white;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(145deg, #ffffff, #7aa0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #b8cef5;
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            font-weight: 350;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.2rem 1.8rem;
+        }
+
+        .btn-primary {
+            background: #2857ad;
+            border: none;
+            padding: 0.9rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 550;
+            font-size: 1.05rem;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 8px 20px rgba(40, 87, 173, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .btn-primary i {
+            font-size: 1.1rem;
+        }
+
+        .btn-primary:hover {
+            background: #3a6bc4;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(40, 87, 173, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #2857ad;
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #c0d6fc;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-outline i {
+            color: #2857ad;
+        }
+
+        .btn-outline:hover {
+            background: rgba(40, 87, 173, 0.12);
+            border-color: #5a86d0;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* hero visual / right side */
+        .hero-visual {
+            flex: 1 1 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-display {
+            background: rgba(20, 20, 30, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 1.8rem 2.2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(40, 87, 173, 0.3);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s;
+        }
+
+        .logo-display img {
+            width: 200px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(40, 87, 173, 0.3));
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            background: #0d0d0d;
+            border: 1px solid #2857ad;
+            color: #b0c8f0;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        /* stats / footer */
+        .stats-row {
+            margin-top: 4.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(40, 87, 173, 0.2);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem 1.5rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .stat-number {
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            color: #889fc9;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .stat-item i {
+            color: #2857ad;
+            font-size: 1.4rem;
+            width: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .social-links a {
+            color: #7a96c9;
+            font-size: 1.3rem;
+            transition: color 0.15s, transform 0.15s;
+        }
+
+        .social-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* responsiveness */
+        @media (max-width: 760px) {
+            .start-page {
+                padding: 2rem 1.5rem;
+                border-radius: 2rem;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.5rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.2rem 1.8rem;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .logo-display img {
+                width: 150px;
+            }
+            .stats-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .stat-item {
+                justify-content: center;
+            }
+            .social-links {
+                justify-content: center;
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .start-page {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .btn-primary, .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="start-page">
+
+        <!-- navbar -->
+        <div class="navbar">
+            <div class="logo-wrapper">
+                <!-- agro logo png -->
+                <img class="logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='20' fill='%231a1a2e'/%3E%3Ctext x='60' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232857ad' text-anchor='middle'%3EAGRO%3C/text%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%232857ad' stroke-width='4' opacity='0.4'/%3E%3C/svg%3E"
+                     alt="Agro logo" />
+                <span class="brand-text">agro</span>
+            </div>
+            <div class="nav-links">
+                <a href="#"><i class="fas fa-compass"></i> Discover</a>
+                <a href="#"><i class="fas fa-seedling"></i> Solutions</a>
+                <a href="#"><i class="fas fa-people-group"></i> About</a>
+                <a href="#" class="cta-small"><i class="fas fa-arrow-right"></i> Get started</a>
+            </div>
+        </div>
+
+        <!-- hero -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-leaf" style="margin-right: 6px;"></i> next‑gen agriculture
+                </div>
+                <h1>
+                    Grow smarter <br />
+                    with <span>agro</span>
+                </h1>
+                <p>
+                    Modern tools for sustainable farming, real‑time insights, and
+                    a future‑proof supply chain — all in one powerful platform.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary">
+                        <i class="fas fa-rocket"></i> Launch app
+                    </button>
+                    <button class="btn-outline">
+                        <i class="fas fa-play-circle"></i> Watch demo
+                    </button>
+                </div>
+            </div>
+
+            <!-- right side: logo display + floating badge -->
+            <div class="hero-visual">
+                <div class="logo-display">
+                    <!-- agro logo png (reuse the same svg as placeholder, but you can replace with actual png) -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='20' fill='%231a1a2e'/%3E%3Ctext x='60' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232857ad' text-anchor='middle'%3EAGRO%3C/text%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%232857ad' stroke-width='4' opacity='0.4'/%3E%3C/svg%3E"
+                         alt="Agro logo png" style="width:100%; max-width:200px;" />
+                </div>
+                <div class="floating-badge">
+                    <i class="fas fa-check-circle" style="color:#2857ad; margin-right: 5px;"></i> v3.0
+                </div>
+            </div>
+        </div>
+
+        <!-- stats & social -->
+        <div class="stats-row">
+            <div class="stat-item">
+                <i class="fas fa-tractor"></i>
+                <span class="stat-number">12k+</span>
+                <span class="stat-label">active farms</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-cloud-sun"></i>
+                <span class="stat-number">98%</span>
+                <span class="stat-label">uptime</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-globe"></i>
+                <span class="stat-number">45</span>
+                <span class="stat-label">countries</span>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- small footnote: made for github pages -->
+        <div style="margin-top: 2rem; text-align: right; font-size: 0.7rem; color: #2e4060; letter-spacing: 0.3px; border-top: 1px solid rgba(40,87,173,0.1); padding-top: 1.2rem;">
+            <i class="fas fa-code" style="color: #2857ad;"></i> built for GitHub · modern start page
+        </div>
+    </div>
+</body>
+</html>
