@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AGRO · modern start page</title>
-    <!-- Font Awesome (free icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         * {
@@ -277,9 +276,9 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(40, 87, 173, 0.2);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 4rem;
             flex-wrap: wrap;
-            gap: 2rem 1.5rem;
         }
 
         .stat-item {
@@ -307,7 +306,6 @@
             width: 2rem;
         }
 
-        /* social links removed – only brand remains */
         .footer-note {
             margin-top: 2rem;
             text-align: right;
@@ -355,6 +353,7 @@
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
+                gap: 1.5rem;
             }
             .stat-item {
                 justify-content: center;
@@ -381,7 +380,6 @@
         <!-- navbar -->
         <div class="navbar">
             <div class="logo-wrapper">
-                <!-- agro logo png (replace src with actual agro logo png.png) -->
                 <img class="logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='20' fill='%231a1a2e'/%3E%3Ctext x='60' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232857ad' text-anchor='middle'%3EAGRO%3C/text%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%232857ad' stroke-width='4' opacity='0.4'/%3E%3C/svg%3E"
                      alt="Agro logo" />
                 <span class="brand-text">agro</span>
@@ -418,10 +416,8 @@
                 </div>
             </div>
 
-            <!-- right side: logo display + floating badge v1.0 -->
             <div class="hero-visual">
                 <div class="logo-display">
-                    <!-- agro logo png (replace with actual file) -->
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='20' fill='%231a1a2e'/%3E%3Ctext x='60' y='68' font-family='Arial, sans-serif' font-size='48' font-weight='bold' fill='%232857ad' text-anchor='middle'%3EAGRO%3C/text%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%232857ad' stroke-width='4' opacity='0.4'/%3E%3C/svg%3E"
                          alt="Agro logo png" style="width:100%; max-width:200px;" />
                 </div>
@@ -431,7 +427,7 @@
             </div>
         </div>
 
-        <!-- stats row: updated as requested -->
+        <!-- stats row - updated with new values -->
         <div class="stats-row">
             <div class="stat-item">
                 <i class="fas fa-headset"></i>
@@ -448,10 +444,8 @@
                 <span class="stat-number">45</span>
                 <span class="stat-label">countries</span>
             </div>
-            <!-- social links removed entirely -->
         </div>
 
-        <!-- footer note (no social icons) -->
         <div class="footer-note">
             <i class="fas fa-code" style="color: #2857ad;"></i> built for GitHub · modern start page
         </div>
