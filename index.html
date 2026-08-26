@@ -103,6 +103,7 @@
             transition: color 0.15s, border-bottom 0.15s;
             border-bottom: 2px solid transparent;
             padding-bottom: 0.3rem;
+            cursor: pointer;
         }
 
         .nav-links a:hover {
@@ -429,46 +430,100 @@
             font-size: 1.2rem;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .product-card {
+        /* Single Image Block with Slideshow */
+        .product-showcase {
             background: rgba(20, 20, 30, 0.6);
             border-radius: 1.5rem;
-            padding: 1.5rem;
+            padding: 2rem;
             border: 1px solid rgba(40, 87, 173, 0.2);
-            transition: all 0.3s ease;
             backdrop-filter: blur(4px);
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(40, 87, 173, 0.5);
-            box-shadow: 0 10px 30px rgba(40, 87, 173, 0.15);
+        .image-slider {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 1rem;
+            cursor: pointer;
         }
 
-        .product-card img {
+        .image-slider img {
             width: 100%;
             height: auto;
+            display: block;
             border-radius: 1rem;
-            margin-bottom: 1rem;
             border: 1px solid rgba(40, 87, 173, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .product-card h3 {
+        .image-slider:hover img {
+            transform: scale(1.02);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .slider-btn {
+            background: rgba(40, 87, 173, 0.2);
+            border: 1px solid rgba(40, 87, 173, 0.3);
+            color: #b0c8f0;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slider-btn:hover {
+            background: rgba(40, 87, 173, 0.3);
+            border-color: #2857ad;
             color: white;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
         }
 
-        .product-card p {
-            color: #889fc9;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .slider-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(40, 87, 173, 0.2);
+            border: 1px solid rgba(40, 87, 173, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: #2857ad;
+            border-color: #2857ad;
+            box-shadow: 0 0 15px rgba(40, 87, 173, 0.4);
+        }
+
+        .slider-dot:hover {
+            background: rgba(40, 87, 173, 0.4);
+        }
+
+        .product-description {
+            text-align: center;
+            color: #b8cef5;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            line-height: 1.6;
         }
 
         .product-features {
@@ -574,8 +629,12 @@
             .product-header h1 {
                 font-size: 2.5rem;
             }
-            .product-grid {
-                grid-template-columns: 1fr;
+            .image-slider {
+                max-width: 100%;
+            }
+            .slider-controls {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -609,8 +668,8 @@
                 <span class="brand-text">Agro Scripts</span>
             </div>
             <div class="nav-links">
-                <a href="#" onclick="showHome()"><i class="fas fa-home"></i> Home</a>
-                <a href="#" onclick="showProduct()"><i class="fas fa-cube"></i> Product</a>
+                <a onclick="showHome()"><i class="fas fa-home"></i> Home</a>
+                <a onclick="showProduct()"><i class="fas fa-cube"></i> Product</a>
                 <a href="#"><i class="fas fa-people-group"></i> About</a>
                 <span class="status-btn">
                     <span class="status-dot"></span>
@@ -686,16 +745,30 @@
                 <p>Premium recoil compensation hardware for competitive Rust players</p>
             </div>
 
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="MENU AGRO.png" alt="MENU AGRO" />
-                    <h3>Menu Interface</h3>
-                    <p>Intuitive control panel with real-time adjustments and presets for optimal recoil control.</p>
+            <!-- Single Image Block with Slideshow -->
+            <div class="product-showcase">
+                <div class="image-slider" onclick="nextImage()">
+                    <img id="sliderImage" src="RUST PRO IMAGE BOX.jfif" alt="RUST PRO" />
                 </div>
-                <div class="product-card">
-                    <img src="agro hardware prod.png" alt="Agro Hardware Product" />
-                    <h3>Hardware Solution</h3>
-                    <p>Advanced hardware device designed for undetectable recoil compensation with zero latency.</p>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" onclick="prevImage(event)">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <div class="slider-dots" id="sliderDots">
+                        <span class="slider-dot active" onclick="goToImage(0, event)"></span>
+                        <span class="slider-dot" onclick="goToImage(1, event)"></span>
+                        <span class="slider-dot" onclick="goToImage(2, event)"></span>
+                    </div>
+                    <button class="slider-btn" onclick="nextImage(event)">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="product-description">
+                    <p><strong>RUST PRO</strong> - Advanced hardware solution for recoil compensation. 
+                    Features customizable profiles, zero-latency response, and supports 15 different weapons. 
+                    Completely undetectable with 24/7 premium support.</p>
                 </div>
             </div>
 
@@ -736,12 +809,63 @@
     </div>
 
     <script>
+        // Image Slider
+        const images = [
+            'RUST PRO IMAGE BOX.jfif',
+            'MENU AGRO.png',
+            'agro hardware prod.png'
+        ];
+        
+        let currentImageIndex = 0;
+        let autoSlideInterval;
+
+        function updateSlider() {
+            const img = document.getElementById('sliderImage');
+            img.src = images[currentImageIndex];
+            
+            // Update dots
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentImageIndex);
+            });
+        }
+
+        function nextImage(event) {
+            if (event) event.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function prevImage(event) {
+            if (event) event.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function goToImage(index, event) {
+            if (event) event.stopPropagation();
+            currentImageIndex = index;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateSlider();
+            }, 4000);
+        }
+
         // Page Navigation
         function showHome() {
             document.getElementById('homePage').classList.remove('hidden');
             document.getElementById('productPage').classList.remove('active');
             document.getElementById('homePage').style.display = 'block';
             document.getElementById('productPage').style.display = 'none';
+            clearInterval(autoSlideInterval);
         }
 
         function showProduct() {
@@ -749,6 +873,7 @@
             document.getElementById('homePage').style.display = 'none';
             document.getElementById('productPage').style.display = 'block';
             document.getElementById('productPage').classList.add('active');
+            resetAutoSlide();
         }
 
         // Particle System
@@ -847,6 +972,14 @@
             init();
             animate();
         })();
+
+        // Start auto-slide when product page is shown
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize slider
+            updateSlider();
+            // Start auto-slide
+            resetAutoSlide();
+        });
     </script>
 </body>
 </html>
