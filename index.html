@@ -162,24 +162,6 @@
             }
         }
 
-        .cta-small {
-            background: #2857ad;
-            color: white !important;
-            padding: 0.4rem 1.1rem;
-            border-radius: 40px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            border-bottom: none !important;
-            transition: background 0.2s, transform 0.1s;
-            box-shadow: 0 4px 12px rgba(40, 87, 173, 0.3);
-        }
-
-        .cta-small:hover {
-            background: #3a6bc4;
-            transform: scale(1.02);
-            border-bottom: none !important;
-        }
-
         .hero {
             display: flex;
             flex-direction: row;
@@ -382,13 +364,13 @@
             padding-top: 1rem;
         }
 
-        /* Product Page Styles */
-        .product-page {
+        /* Page Styles */
+        .page {
             display: none;
             animation: fadeIn 0.5s ease;
         }
 
-        .product-page.active {
+        .page.active {
             display: block;
         }
 
@@ -411,6 +393,80 @@
             }
         }
 
+        /* About Page */
+        .about-content {
+            background: rgba(20, 20, 30, 0.4);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(40, 87, 173, 0.15);
+            backdrop-filter: blur(4px);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #7aa0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #b8cef5;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-content strong {
+            color: #7aa0e0;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 1rem;
+            border: 1px solid rgba(40, 87, 173, 0.1);
+        }
+
+        .about-features span {
+            color: #b8cef5;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-features i {
+            color: #2857ad;
+            width: 1.5rem;
+        }
+
+        .disclaimer {
+            background: rgba(200, 50, 50, 0.08);
+            border: 1px solid rgba(200, 50, 50, 0.2);
+            border-radius: 0.8rem;
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            color: #cc8899;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .disclaimer i {
+            color: #cc4455;
+            margin-right: 0.5rem;
+        }
+
+        /* Product Page */
         .product-header {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -431,7 +487,6 @@
             font-size: 1.1rem;
         }
 
-        /* Product Showcase - Zoomed out layout */
         .product-showcase {
             display: flex;
             flex-direction: row;
@@ -472,6 +527,36 @@
 
         .image-slider:hover img {
             transform: scale(1.02);
+        }
+
+        /* Placeholder image styles for HWID page */
+        .image-placeholder {
+            width: 100%;
+            max-height: 400px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(40, 87, 173, 0.05);
+            border: 2px dashed rgba(40, 87, 173, 0.3);
+            border-radius: 1rem;
+            color: #4a6a9e;
+            font-size: 0.95rem;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .image-placeholder:hover {
+            border-color: rgba(40, 87, 173, 0.6);
+            background: rgba(40, 87, 173, 0.1);
+            color: #7aa0e0;
+        }
+
+        .image-placeholder i {
+            font-size: 2.5rem;
+            color: #2857ad;
+            opacity: 0.6;
         }
 
         .slider-controls {
@@ -527,7 +612,6 @@
             background: rgba(40, 87, 173, 0.4);
         }
 
-        /* Right side - Price & Buy */
         .product-purchase {
             flex: 1;
             min-width: 200px;
@@ -589,6 +673,38 @@
         }
 
         .buy-btn i {
+            font-size: 1.2rem;
+        }
+
+        .waitlist-btn {
+            background: transparent;
+            border: 1.5px solid #2857ad;
+            padding: 1rem 3rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #c0d6fc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            width: 100%;
+            justify-content: center;
+            text-decoration: none;
+            backdrop-filter: blur(4px);
+        }
+
+        .waitlist-btn:hover {
+            background: rgba(40, 87, 173, 0.15);
+            border-color: #5a86d0;
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(40, 87, 173, 0.3);
+        }
+
+        .waitlist-btn i {
+            color: #2857ad;
             font-size: 1.2rem;
         }
 
@@ -673,6 +789,12 @@
             .price-main {
                 font-size: 3rem;
             }
+            .about-content {
+                padding: 1.5rem;
+            }
+            .about-content h1 {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 760px) {
@@ -727,6 +849,12 @@
             .image-slider img {
                 max-height: 280px;
             }
+            .about-content p {
+                font-size: 0.95rem;
+            }
+            .about-features {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 450px) {
@@ -746,12 +874,15 @@
             .price-main {
                 font-size: 2.5rem;
             }
-            .buy-btn {
+            .buy-btn, .waitlist-btn {
                 padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
             .product-showcase {
                 padding: 1rem;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -769,19 +900,19 @@
                 <span class="brand-text">Agro Scripts</span>
             </div>
             <div class="nav-links">
-                <a onclick="showHome()"><i class="fas fa-home"></i> Home</a>
-                <a onclick="showProduct()"><i class="fas fa-cube"></i> Product</a>
-                <a href="#"><i class="fas fa-people-group"></i> About</a>
+                <a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a>
+                <a onclick="showPage('product')"><i class="fas fa-cube"></i> Rust Pro</a>
+                <a onclick="showPage('hwid')"><i class="fas fa-shield-halved"></i> HWID Spoofer</a>
+                <a onclick="showPage('about')"><i class="fas fa-info-circle"></i> About</a>
                 <span class="status-btn">
                     <span class="status-dot"></span>
                     UNDETECTED
                 </span>
-                <a href="#" class="cta-small"><i class="fas fa-arrow-right"></i> Get started</a>
             </div>
         </div>
 
         <!-- Home Page -->
-        <div id="homePage" class="home-page">
+        <div id="homePage" class="page home-page active">
             <div class="hero">
                 <div class="hero-content">
                     <div class="hero-badge">
@@ -799,7 +930,7 @@
                         <a href="https://discord.gg/tEVDmZ7T6z" target="_blank" class="btn-primary">
                             <i class="fab fa-discord"></i> Join Discord
                         </a>
-                        <button onclick="showProduct()" class="btn-outline">
+                        <button onclick="showPage('product')" class="btn-outline">
                             <i class="fas fa-eye"></i> View Product
                         </button>
                     </div>
@@ -835,9 +966,9 @@
             </div>
         </div>
 
-        <!-- Product Page -->
-        <div id="productPage" class="product-page">
-            <button class="back-btn" onclick="showHome()">
+        <!-- Rust Pro Product Page -->
+        <div id="productPage" class="page">
+            <button class="back-btn" onclick="showPage('home')">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </button>
 
@@ -846,7 +977,6 @@
                 <p>Premium recoil compensation hardware for competitive Rust players</p>
             </div>
 
-            <!-- Product Showcase - Zoomed out with Buy Now -->
             <div class="product-showcase">
                 <div class="image-slider-section">
                     <div class="image-slider" onclick="nextImage()">
@@ -876,8 +1006,8 @@
                         <div class="price-label">HARDWARE-LIFETIME</div>
                     </div>
                     
-                    <a href="https://discord.gg/tEVDmZ7T6z" target="_blank" class="buy-btn">
-                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    <a href="https://discord.gg/tEVDmZ7T6z" target="_blank" class="waitlist-btn">
+                        <i class="fas fa-clock"></i> Join Waitlist
                     </a>
 
                     <div class="product-description">
@@ -918,6 +1048,115 @@
             </div>
         </div>
 
+        <!-- HWID Spoofer Page -->
+        <div id="hwidPage" class="page">
+            <button class="back-btn" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+
+            <div class="product-header">
+                <h1>HWID SPOOFER</h1>
+                <p>Permanent hardware ID spoofer for undetectable gaming</p>
+            </div>
+
+            <div class="product-showcase">
+                <div class="image-slider-section">
+                    <div class="image-slider">
+                        <!-- Placeholder for HWID spoofer images - add tomorrow -->
+                        <div class="image-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span>Product images coming soon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-purchase">
+                    <div class="price-box">
+                        <div class="price-main">
+                            $19.<span>99</span>
+                        </div>
+                        <div class="price-label">PERMANENT SPOOFER</div>
+                    </div>
+                    
+                    <a href="https://discord.gg/tEVDmZ7T6z" target="_blank" class="buy-btn">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </a>
+
+                    <div class="product-description">
+                        <strong>HWID SPOOFER</strong> - Permanent hardware ID spoofer that 
+                        completely changes your system identifiers for undetectable gaming.
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-features">
+                <h2>Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-infinity"></i>
+                        <span>Permanent Spoofing</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Undetectable</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-microchip"></i>
+                        <span>All Hardware IDs</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Auto-Restore Support</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-desktop"></i>
+                        <span>Windows 10/11</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="aboutPage" class="page">
+            <button class="back-btn" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
+
+            <div class="about-content">
+                <h1>About Agro-Ware</h1>
+                
+                <p>
+                    <strong>Agro-Ware</strong> is a standalone, hardware‑integrated recoil compensation system designed for <strong>Rust</strong>, using a <strong>Raspberry Pi Pico</strong> to act as a real USB mouse so that its input is not detectable by Easy Anti‑Cheat.
+                </p>
+
+                <p>
+                    The script features a modern <strong>Dear PyGui</strong> interface with a dark theme, weapon profiles (<strong>AK‑47, LR‑300, MP5, Custom</strong>), sensitivity matching for General and ADS, a real‑time recoil pattern visualizer, and humanization to add random variance for a more natural feel.
+                </p>
+
+                <div class="about-features">
+                    <span><i class="fas fa-key"></i> Time‑limited, HWID‑bound license system</span>
+                    <span><i class="fas fa-keyboard"></i> F1: Toggle</span>
+                    <span><i class="fas fa-keyboard"></i> F2: Cycle weapons</span>
+                    <span><i class="fas fa-keyboard"></i> F3: Emergency stop</span>
+                    <span><i class="fas fa-keyboard"></i> F4: Humanization</span>
+                    <span><i class="fas fa-arrow-up"></i> Arrow keys: Adjust strength</span>
+                </div>
+
+                <p>
+                    It includes a time‑limited, <strong>HWID‑bound license system</strong> that binds keys to the first PC that activates them, and offers hotkeys (<strong>F1</strong> to toggle, <strong>F2</strong> to cycle weapons, <strong>F3</strong> for emergency stop, <strong>F4</strong> for humanization, and <strong>arrow keys</strong> to adjust strength).
+                </p>
+
+                <div class="disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Disclaimer:</strong> The tool is intended for <strong>educational and private use only</strong>. Using it in online games may violate terms of service and result in a ban. Use at your own risk.
+                </div>
+            </div>
+        </div>
+
         <div class="footer-note">
             <i class="fas fa-code" style="color: #2857ad;"></i> built for GitHub · modern start page
         </div>
@@ -936,7 +1175,9 @@
 
         function updateSlider() {
             const img = document.getElementById('sliderImage');
-            img.src = images[currentImageIndex];
+            if (img) {
+                img.src = images[currentImageIndex];
+            }
             
             const dots = document.querySelectorAll('.slider-dot');
             dots.forEach((dot, index) => {
@@ -974,20 +1215,38 @@
         }
 
         // Page Navigation
-        function showHome() {
-            document.getElementById('homePage').classList.remove('hidden');
-            document.getElementById('productPage').classList.remove('active');
-            document.getElementById('homePage').style.display = 'block';
-            document.getElementById('productPage').style.display = 'none';
-            clearInterval(autoSlideInterval);
-        }
-
-        function showProduct() {
-            document.getElementById('homePage').classList.add('hidden');
-            document.getElementById('homePage').style.display = 'none';
-            document.getElementById('productPage').style.display = 'block';
-            document.getElementById('productPage').classList.add('active');
-            resetAutoSlide();
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+                p.style.display = 'none';
+            });
+            
+            // Show selected page
+            let targetPage;
+            if (page === 'home') {
+                targetPage = document.getElementById('homePage');
+                clearInterval(autoSlideInterval);
+            } else if (page === 'product') {
+                targetPage = document.getElementById('productPage');
+                setTimeout(() => {
+                    updateSlider();
+                    resetAutoSlide();
+                }, 100);
+            } else if (page === 'hwid') {
+                targetPage = document.getElementById('hwidPage');
+                clearInterval(autoSlideInterval);
+            } else if (page === 'about') {
+                targetPage = document.getElementById('aboutPage');
+                clearInterval(autoSlideInterval);
+            }
+            
+            if (targetPage) {
+                targetPage.style.display = 'block';
+                setTimeout(() => {
+                    targetPage.classList.add('active');
+                }, 10);
+            }
         }
 
         // Particle System
@@ -1087,10 +1346,9 @@
             animate();
         })();
 
-        // Start auto-slide when product page is shown
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            updateSlider();
-            resetAutoSlide();
+            showPage('home');
         });
     </script>
 </body>
